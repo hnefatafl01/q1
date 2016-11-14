@@ -4,12 +4,7 @@
     <meta charset="utf-8">
     <title>GitFit</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <style>
-      .nav {
-        /*background-color: red;*/
-      }
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <!-- Header & Nav -->
@@ -46,16 +41,17 @@
             Session History
           </a>
 
-          <span class="nav-item">
-            <a class="button is-active" > New Session
+          <span class="nav-item" href="#">
+            <a class="button is-primary" > New Session
             </a>
           </span>
         </div>
       </nav>
     </header>
+
     <!-- main content  -->
-    <main class="container is-fluid">
-      <section class="hero has-shadow">
+    <main class="section is-fluid has-shadow">
+      <section class="hero has-shadow is-dark is-medium">
         <div class="hero-body">
           <div class="container">
             <h1 class="title">
@@ -67,11 +63,16 @@
           </div>
         </div>
       </section>
+      <section class="section has-text-centered has-shadow" >
+        <a class="button is-dark">
+          <span>Plan a Workout</span>
+        </a>
+      </section>
     </main>
 
     <!-- Footer -->
       <footer class="footer">
-        <div class="container">
+        <div class="container is-fluid">
           <div class="content has-text-centered">
             <p>
               <strong>GitFit</strong> by <a href="#">Kevin Erickson</a>
