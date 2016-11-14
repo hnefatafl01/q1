@@ -4,17 +4,77 @@
     <meta charset="utf-8">
     <title>GitFit</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <style>
+      .nav {
+        /*background-color: red;*/
+      }
+    </style>
   </head>
   <body>
+    <!-- Header & Nav -->
     <header class="container is-fluid">
+      <nav class="nav has-shadow">
+        <div class="nav-left">
+          <a class="nav-item is-brand" href="#">
+            <h1>GitFit</h1>
+          </a>
+        </div>
+
+        <div class="nav-center">
+          <a class="nav-item" href="#">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+        </div>
+        <!-- hamburger menu on resize -->
+        <span class="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+        <div class="nav-right nav-menu">
+          <a class="nav-item" href="#">
+            Home
+          </a>
+          <a class="nav-item" href="#">
+
+          </a>
+          <a class="nav-item" href="#">
+            Session History
+          </a>
+
+          <span class="nav-item">
+            <a class="button is-active" > New Session
+            </a>
+          </span>
+        </div>
+      </nav>
     </header>
+    <!-- main content  -->
     <main class="container is-fluid">
-      <main>
+      <section class="hero has-shadow">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              GitFit Workout Log
+            </h1>
+            <h2 class="subtitle">
+              Easily Track Your Training
+            </h2>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
       <footer class="footer">
         <div class="container">
           <div class="content has-text-centered">
             <p>
-              <strong>GitFit</strong> by <a href="http://jgthms.com">Kevin Erickson</a>
+              <strong>GitFit</strong> by <a href="#">Kevin Erickson</a>
             </p>
             <p>
               <a class="icon" href="https://github.com/hnefatafl01">
