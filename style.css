@@ -31,7 +31,7 @@ main {
   border-radius: 5px;
 }
 
-.side-nav {
+.mobile-nav {
   background-color: #363636;
   z-index: 1;
   height: 8vh;
