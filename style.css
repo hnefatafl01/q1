@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.mobile-nav li a:hover {
+  color: #b86bff;
+}
+
+main {
+  flex: 1;
+
+}
+
+.hero {
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: 5px;
+}
+
+.hero-body {
+  padding-left: 4em;
+}
+
+.image.is-2by1 {
+  margin-top: 3em;
+}
+
+.image.is-2by1  img {
+  border-radius: 5px;
+}
+
+.side-nav {
+  background-color: #363636;
+  z-index: 1;
+  height: 8vh;
+  width: 28vw;
+}
+
+.footer {
+  height: 2em;
+  padding-bottom: 1em;
+}

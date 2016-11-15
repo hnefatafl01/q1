@@ -5,8 +5,9 @@
     <meta charset="utf-8">
       <title>GitFit</title>
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
+      <link rel="stylesheet" type="text/css" href="../style.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-      <!-- <link rel="stylesheet" href="style.css"> -->
+
   </head>
 
   <body>
@@ -35,11 +36,13 @@
         </span>
 
         <span class="mobile-nav">
-          <ul>
-            <li><a>Home</a></li>
-            <li><a>Session History</a></li>
-            <li><a>New Session</a></li>
-          </ul>
+          <div class="side-nav">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="#">Session History</a></li>
+              <li><a href="../new-workout-session/index.html">New Session</a></li>
+            </ul>
+          </div>
         </span>
 
         <div class="nav-right nav-menu">
@@ -60,9 +63,9 @@
 
     <!-- main content  -->
     <main class="section is-fluid has-shadow">
-      <section class="hero has-shadow is-dark is-medium">
-        <div class="hero-body">
-          <div class="container">
+      <div class="container is-fluid">
+        <section class="hero is-dark">
+          <div class="hero-body">
             <h1 class="title">
               GitFit Workout Log
             </h1>
@@ -71,11 +74,20 @@
             </h2>
           </div>
         </div>
-     </section>
-     <section class="section has-text-centered has-shadow">
-      <a class="button is-dark" href="../new-workout-session/index.html">
-        <span>Plan a Workout</span>
-      </a>
+       </section>
+     <section class="section has-text-centered is-fluid has-shadow">
+      <section class="container">
+        <div class="box">
+          <p class="title is-5">Flexible column</p>
+          <p class="subtitle">Choose exercises and log your Sets, Reps, Load, and Rest</p>
+          <a class="button is-primary" href="../new-workout-session/index.html">
+            <span>Plan a Workout</span>
+          </a>
+        </div>
+      </section>
+      <figure class="image is-2by1">
+        <img src="background-kettlebells.jpg">
+      </figure>
      </section>
     </main>
 
@@ -84,13 +96,14 @@
       <div class="container is-fluid">
         <div class="content has-text-centered">
           <p>
-            <strong>GitFit</strong> by <a href="#">Kevin Erickson</a>
+            <strong>GitFit</strong> &copy; <a href="#">Kevin Erickson</a>
           </p>
           <p>
             <a class="icon" href="https://github.com/hnefatafl01">
               <i class="fa fa-github"></i>
             </a>
           </p>
+          <small><address>kevin.erick01@gmail.com</address></small>
         </div>
       </div>
     </footer>
