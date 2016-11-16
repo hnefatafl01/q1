@@ -7,9 +7,8 @@ $(document).ready(function() {
 
   });
   //form submission for local storage
-  $('form').submit(function(event) {
+  $('form').submit(exerciseVariables,function(event) {
       event.preventDefault();
-      var journalEntry = {};
       var text = $(this).serialize();
       // console.log(text);
       //decoding from query format
@@ -20,10 +19,8 @@ $(document).ready(function() {
       }, {});
       console.log(sessionObj);
       //store it
-      // localStorage.setItem("Workout Session", sessionObj);
-      // $('.workout-session').appendTo('<p>' + sessionObj + '</p>');
+      localStorage.setItem("Workout Session", sessionObj);
   });
-
 
 //exercise search
   var $selectExercise = $('#selectExercise');
@@ -36,4 +33,15 @@ $(document).ready(function() {
       $selectExercise.append("<option>" + exerciseName + "</option>");
     }
   };
+// function to output workout data to html
+  // var exerciseVariables = function() {
+  //   $('.workout-session').append("<p>"+ $('form') +"</p>");
+  //
+  // }
+  // var pageRedirect = function() {
+  //   window.location.replace("../new-workout-session/index2.html");
+  // }
+  // setTimeout("pageRedirect()", 10000);
+
+
 });
