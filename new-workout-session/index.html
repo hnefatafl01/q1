@@ -65,16 +65,15 @@
       <section class="container is-fluid">
       <form>
         <label class="label">Exercise</label>
-        <div class="control is-grouped">
-          <p class="control is-expanded">
-            <input class="input" type="text" placeholder="Search for Exercises" name="exercise">
-          </p>
-          <p class="control">
-            <a id="search" class="button is-info" name="search">
-              Search
-            </a>
-          </p>
-        </div>
+        <p class="control">
+          <span class="select">
+            <select id="selectExercise" name="selectExercise">
+              <option>Select Exercise</option>
+            </select>
+          </span>
+        </p>
+      </form>
+      <form>
         <label class="label">Name</label>
         <p class="control">
           <input class="input" type="text" placeholder="Text input" name="name">
