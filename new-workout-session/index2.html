@@ -62,47 +62,28 @@
     <!-- main content  -->
     <main class="section is-fluid has-shadow">
       <section class="container is-fluid">
-
-        <form>
-          <label class="label">Name</label>
-          <p class="control">
-            <input class="input" type="text" placeholder="Text input" name="name">
-          </p>
-          <label class="label">Date</date>
-          <p class="control">
-            <input class="input" type="date" placeholder="mm/dd/yyyy" name="Date">
-          </p>
-          <form>
-            <label class="label">Exercise</label>
-            <p class="control">
-              <span class="select">
-                <select id="selectExercise" name="selectExercise">
-                  <option>Select Exercise</option>
-                </select>
-              </span>
-            </p>
-          </form>
-          <label class="label">Sets</label>
-          <p class="control">
-            <input class="input" type="number" placeholder="Enter Sets " name="sets">
-          </p>
-          <label class="label">Repetitions</label>
-          <p class="control">
-            <input class="input" type="number" placeholder="Enter repetitions " name="repetitions">
-          </p>
-          <label class="label">Load</label>
-          <p class="control">
-            <input class="input" type="number" placeholder="Enter weight used" name="load">
-          </p>
-          <label class="label">Notes</label>
-          <p class="control">
-            <textarea class="textarea" placeholder="Training Notes" name="notes"></textarea>
-          </p>
-          <p class="control">
-            <button class="button is-primary">Submit</button>
-            <button class="button is-link">Reset</button>
-          </p>
-        </form>
+        <!-- start exercise component -->
+        <section class="workout-session">
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="http://placehold.it/128x128">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Exercise</strong>
+                  <br>
+                </p>
+                <p>Set x Reps x Load</p>
+                <p>Rest </p>
+              </div>
+              </nav>
+            </div>
+          </article>
+        </section>
+        <!-- finish exercise session -->
       </section>
 
     </main>
