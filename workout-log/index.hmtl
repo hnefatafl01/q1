@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
       <title>GitFit Tracker</title>
@@ -37,7 +38,7 @@
           <div class="side-nav">
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="../index.hmtl">Session History</a></li>
+              <li><a href="#">Session History</a></li>
               <li><a href="../new-workout-session/index.html">New Session</a></li>
             </ul>
           </div>
@@ -60,52 +61,39 @@
     </header>
 
     <!-- main content  -->
-    <main class="section is-fluid has-shadow">
-      <section class="container is-fluid">
-      <form>
-        <label class="label">Exercise</label>
-        <p class="control">
-          <span class="select">
-            <select id="selectExercise" name="selectExercise">
-              <option>Select Exercise</option>
-            </select>
-          </span>
-        </p>
-      </form>
-      <form>
-        <label class="label">Name</label>
-        <p class="control">
-          <input class="input" type="text" placeholder="Text input" name="name">
-        </p>
-        <label class="label">Date</date>
-        <p class="control">
-          <input class="input" type="date" placeholder="mm/dd/yyyy" name="Date">
-        </p>
-        <label class="label">Number of Sets</label>
-        <label class="label">Sets</label>
-        <p class="control">
-          <input class="input" type="number" placeholder="Enter Sets " name="sets">
-        </p>
-        <label class="label">Repetitions</label>
-        <p class="control">
-          <input class="input" type="number" placeholder="Enter repetitions " name="repetitions">
-        </p>
-        <label class="label">Load</label>
-        <p class="control">
-          <input class="input" type="number" placeholder="Enter weight used" name="load">
-        </p>
-        <label class="label">Notes</label>
-        <p class="control">
-          <textarea class="textarea" placeholder="Training Notes" name="notes"></textarea>
-        </p>
-        <p class="control">
-          <button class="button is-primary">Submit</button>
-          <button class="button is-link">Reset</button>
-        </p>
-      </form>
-      </section>
-      <section class="workout-session">
-      </section>
+    <main>
+      <article class="media">
+        <figure class="media-left">
+          <p class="image is-64x64">
+            <img src="http://placehold.it/128x128">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+              <br>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+            </p>
+          </div>
+          <nav class="level">
+            <div class="level-left">
+              <a class="level-item">
+                <span class="icon is-small"><i class="fa fa-reply"></i></span>
+              </a>
+              <a class="level-item">
+                <span class="icon is-small"><i class="fa fa-retweet"></i></span>
+              </a>
+              <a class="level-item">
+                <span class="icon is-small"><i class="fa fa-heart"></i></span>
+              </a>
+            </div>
+          </nav>
+        </div>
+        <div class="media-right">
+          <button class="delete"></button>
+        </div>
+      </article>
 
     </main>
 
@@ -127,4 +115,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="../app.js"></script>
   </body>
-</html>
+
+  </html>
