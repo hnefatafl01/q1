@@ -4,7 +4,6 @@ $(document).ready(function() {
   $('span.nav-toggle').click(function() {
       // console.log("clicked");
       $('.mobile-nav').toggle();
-
   });
   //form submission for local storage
   $('form').submit(exerciseVariables,function(event) {
@@ -21,7 +20,6 @@ $(document).ready(function() {
       //store it
       localStorage.setItem("Workout Session", sessionObj);
   });
-
 //exercise search
   var $selectExercise = $('#selectExercise');
   var url = "https://wger.de/api/v2/exercise/?language=2";
@@ -34,14 +32,12 @@ $(document).ready(function() {
     }
   };
 // function to output workout data to html
-  // var exerciseVariables = function() {
-  //   $('.workout-session').append("<p>"+ $('form') +"</p>");
-  //
-  // }
+  var exerciseVariables = function() {
+    $('.workout-session').append("<p>"+ ["name"] +"</p>");
+
+  }
   // var pageRedirect = function() {
   //   window.location.replace("../new-workout-session/index2.html");
   // }
   // setTimeout("pageRedirect()", 10000);
-
-
 });

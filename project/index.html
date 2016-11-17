@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>GitFit Tracker</title>
+      <title>GitFit</title>
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
-      <link rel="stylesheet" type="text/css" href="../style.css">
+      <link rel="stylesheet" type="text/css" href="./styles/style.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
 
   <body>
@@ -14,11 +15,10 @@
     <header class="container is-fluid">
       <nav class="nav has-shadow">
         <div class="nav-left">
-          <a class="nav-item is-brand" href="../landingPage/index.html">
-            <h1>GitFit Tracker</h1>
+          <a class="nav-item is-brand" href="index.html">
+            <h1>GitFit</h1>
           </a>
         </div>
-
         <div class="nav-center">
           <a class="nav-item" href="https://github.com/hnefatafl01/q1">
             <span class="icon">
@@ -38,23 +38,17 @@
           <div class="side-nav">
             <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="../index.hmtl">Session History</a></li>
-              <li><a href="../new-workout-session/index.html">New Session</a></li>
+              <li><a href="./training-log/index.html">Session History</a></li>
+              <li><a href="./form-page/index.html">New Session</a></li>
             </ul>
           </div>
         </span>
 
         <div class="nav-right nav-menu">
-          <a class="nav-item" href="../landingPage/index.html">
-            Home
-          </a>
-          <a class="nav-item" href="#">
-            Session History
-          </a>
-
-          <span class="nav-item" href="/new-workout-session/index.html">
-            <a class="button is-primary" > New Session
-            </a>
+          <a class="nav-item" href="./index.html">Home</a>
+          <a class="nav-item" href="./training-log/index.html">Session History</a>
+          <span class="nav-item" >
+            <a class="button is-primary" href="./form-page/index.html"> New Session</a>
           </span>
         </div>
       </nav>
@@ -62,31 +56,27 @@
 
     <!-- main content  -->
     <main class="section is-fluid has-shadow">
-      <section class="container is-fluid">
-        <!-- start exercise component -->
-        <section class="workout-session">
-          <!-- <article class="media">
-            <figure class="media-left">
-              <p class="image is-64x64">
-                <img src="http://placehold.it/128x128">
-              </p>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>Exercise</strong>
-                  <br>
-                </p>
-                <p class="variables">Set x Reps x Load</p>
-                <p>Rest</p>
-              </div>
-              </nav>
-            </div>
-          </article> -->
-        </section>
-        <!-- finish exercise session -->
+      <div class="container is-fluid">
+        <section class="hero is-dark">
+          <div class="hero-body">
+            <h1 class="title">GitFit Workout Log</h1>
+            <h2 class="subtitle">Easily Track Your Training</h2>
+          </div>
+        </div>
+       </section>
+     <section class="section has-text-centered is-fluid has-shadow">
+      <section class="container">
+        <div class="box">
+          <p class="subtitle">Choose exercises and log your Sets, Reps, Load, and Rest</p>
+          <a class="button is-primary" href="./form-page/index.html">
+            <span>Plan a Workout</span>
+          </a>
+        </div>
       </section>
-
+      <figure class="image is-2by1">
+        <img src="./images/background-kettlebells.jpg">
+      </figure>
+     </section>
     </main>
 
     <!-- Footer -->
@@ -94,17 +84,19 @@
       <div class="container is-fluid">
         <div class="content has-text-centered">
           <p>
-            <strong>GitFit Tracker</strong> by <a href="#">Kevin Erickson</a>
+            <strong>GitFit</strong> &copy; <a href="#">Kevin Erickson</a>
           </p>
           <p>
             <a class="icon" href="https://github.com/hnefatafl01">
               <i class="fa fa-github"></i>
             </a>
           </p>
+          <small><address>kevin.erick01@gmail.com</address></small>
         </div>
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="../app.js"></script>
+    <script src="./scripts/app.js"></script>
   </body>
-</html>
+
+  </html>
