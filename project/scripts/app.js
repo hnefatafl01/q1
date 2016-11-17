@@ -6,7 +6,7 @@ $(document).ready(function() {
       $('.mobile-nav').toggle();
   });
   //form submission for local storage
-  $('form').submit(exerciseVariables,function(event) {
+  $('form').submit($showInputData, function(event) {
       event.preventDefault();
       var text = $(this).serialize();
       // console.log(text);
@@ -16,9 +16,11 @@ $(document).ready(function() {
           prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);
           return prev;
       }, {});
-      console.log(sessionObj);
+      // console.log(sessionObj);
       //store it
       localStorage.setItem("Workout Session", sessionObj);
+      $showInputData();
+      $hideInputData();
   });
 //exercise search
   var $selectExercise = $('#selectExercise');
@@ -31,11 +33,26 @@ $(document).ready(function() {
       $selectExercise.append("<option>" + exerciseName + "</option>");
     }
   };
-// function to output workout data to html
-  var exerciseVariables = function() {
-    $('.workout-session').append("<p>"+ ["name"] +"</p>");
 
+// function to output workout data to html
+  // var exerciseVariables = function(sessionObj) {
+  //   $('').append("<p>"+ sessionObj["name"] +"</p>");
+  //
+  // }
+  var $modal = $('.modal');
+  var $showInputData = function() {
+      console.log("function runs");
+      $modal.toggleClass('is-active');
+  };
+
+  var $hideInputData = function() {
+    $('#cancel').click(function() {
+      console.log('cancel');
+      $modal.toggleClass('is-active');
+    })
   }
+
+  //page redirection
   // var pageRedirect = function() {
   //   window.location.replace("../new-workout-session/index2.html");
   // }

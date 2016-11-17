@@ -62,8 +62,24 @@
 
     <!-- main content  -->
     <main class="section is-fluid has-shadow">
+      <!-- Modal content-->
+      <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Exercise Variables</p>
+          </header>
+          <section class="modal-card-body">
+            <!-- Content ... -->
+          </section>
+          <footer class="modal-card-foot">
+            <a class="button is-primary">Save changes</a>
+            <a id="cancel" class="button">Cancel</a>
+          </footer>
+        </div>
+      </div>
+      <!-- -->
       <section class="container is-fluid">
-
         <form>
           <label class="label">Name</label>
           <p class="control">
@@ -73,16 +89,25 @@
           <p class="control">
             <input class="input" type="date" placeholder="mm/dd/yyyy" name="Date">
           </p>
-          <form>
-            <label class="label">Exercise</label>
-            <p class="control">
-              <span class="select">
-                <select id="selectExercise" name="selectExercise">
-                  <option>Select Exercise</option>
-                </select>
-              </span>
-            </p>
-          </form>
+          <div class="columns">
+            <div class="column">
+              <form>
+                <label class="label">Exercise</label>
+                <p class="control">
+                  <span class="select">
+                    <select id="selectExercise" name="selectExercise">
+                      <option>Select Exercise</option>
+                    </select>
+                  </span>
+                </p>
+              </form>
+            </div>
+            <div class="column">
+              <figure class="exerciseImg">
+              </figure>
+            </div>
+          </div>
+
           <label class="label">Sets</label>
           <p class="control">
             <input class="input" type="number" placeholder="Enter Sets " name="sets">
@@ -100,7 +125,7 @@
             <textarea class="textarea" placeholder="Training Notes" name="notes"></textarea>
           </p>
           <p class="control">
-            <button class="button is-primary">Submit</button>
+            <button id ="submitForm" class="button is-primary">Submit</button>
             <button class="button is-link">Reset</button>
           </p>
         </form>
