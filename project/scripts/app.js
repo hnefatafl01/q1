@@ -2,28 +2,32 @@ $(document).ready(function() {
   //hamburger menu toggle
   $('.mobile-nav').hide();
   $('span.nav-toggle').click(function() {
-      // console.log("clicked");
       $('.mobile-nav').toggle();
   });
+
   //form submission for local storage
-  $('form').submit($showInputData, function(event) {
+  $('form').submit(function(event) {
       event.preventDefault();
       var text = $(this).serialize();
-      // console.log(text);
       //decoding from query format
       var sessionObj = text.split("&").reduce(function(prev, curr, i, arr) {
           var p = curr.split("=");
           prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);
           return prev;
       }, {});
-      // console.log(sessionObj);
-      //store it
-      localStorage.setItem("Workout Session", sessionObj);
-      $showInputData();
-      $hideInputData();
+      sessionObj["exercise"] = $("#selectExercise").val();
+      console.log(sessionObj);
+      for (var i in sessionObj) {
+        $('.modal-card-body').append("<p>" + "<strong>" + i + "</strong>" + ": " + sessionObj[i] + "</p>");
+      }
+      $showModal();
+      $hideModal();
+    //store it
+    localStorage.setItem("savedExercise", JSON.stringify(sessionObj));
+
   });
 
- //Muscles and Exercise search
+  //Muscles and Exercise search
   var $selectMuscleGroup = $('#selectMuscleGroup');
   var $selectExercise = $('#selectExercise');
   var url = "https://raw.githubusercontent.com/davejt/exercise/master/data/exercises";
@@ -36,7 +40,6 @@ $(document).ready(function() {
        for (var i = 0; i < arrayData.length; i++) {
         var muscles = arrayData[i].split(',');
         var muscleKey = muscles[1].trim();
-        //  console.log(muscleKey);
         if (exerciseAndMuscles.hasOwnProperty(muscleKey)) {
           exerciseAndMuscles[muscleKey].push(muscles[0]);
         } else {
@@ -51,9 +54,8 @@ $(document).ready(function() {
   //selectMuscleGroupAndExercises
   function selectMuscleGroupExercises(data) {
     var musclesExerciseGroups = formatData(data);
-    console.log(musclesExerciseGroups);
     for (muscleKey in musclesExerciseGroups) {
-      $selectMuscleGroup.append("<option>" + muscleKey + "</option>");
+      $selectMuscleGroup.append("<option value='"+ muscleKey + "'>" + muscleKey + "</option>");
     }
     $selectMuscleGroup.change(function() {
       exerciseSelect(musclesExerciseGroups, this.value);
@@ -61,37 +63,26 @@ $(document).ready(function() {
   };
 
  function exerciseSelect(musclesExerciseGroups, muscleKey) {
-   console.log(musclesExerciseGroups[muscleKey]);
     $selectExercise.html('');
     for (i in musclesExerciseGroups[muscleKey]) {
-      // console.log(musclesExerciseGroups[muscleKey]);
       $selectExercise.append("<option>" + musclesExerciseGroups[muscleKey][i] + "</option>");
     }
   }
 
+// // function to output workout data to html
+// function saveVariables() {
+//     $('.modal-card-body').append("<p>"+  +"</p>");
+//
+//   }
 
-// function to output workout data to html
-  // var exerciseVariables = function(sessionObj) {
-  //   $('').append("<p>"+ sessionObj["name"] +"</p>");
-  //
-  // }
   var $modal = $('.modal');
-  var $showInputData = function() {
-      console.log("function runs");
+  var $showModal = function() {
       $modal.toggleClass('is-active');
   };
 
-  var $hideInputData = function() {
+  var $hideModal = function() {
     $('#cancel').click(function() {
-      console.log('cancel');
       $modal.toggleClass('is-active');
     })
   }
 });
-
-
-  //page redirection
-  // var pageRedirect = function() {
-  //   window.location.replace("../new-workout-session/index2.html");
-  // }
-  // setTimeout("pageRedirect()", 10000);
