@@ -33,35 +33,42 @@ $(document).ready(function() {
   function formatData(data) {
      var arrayData = data.split(/\n/);
      var exerciseAndMuscles = {};
-     for (var i = 0; i < arrayData.length; i++) {
-       var muscles = arrayData[i].split(',');
-      //  console.log(muscles);
-      //  console.log(muscles[1]);
-      var muscleKey = muscles[1];
-      //  console.log(muscleKey);
-      if (exerciseAndMuscles.hasOwnProperty(muscleKey)) {
-        exerciseAndMuscles[muscleKey].push(muscles[0]);
-      } else {
-        var exerciseArray = [];
-        exerciseArray.push(muscles[0]);
-        exerciseAndMuscles[muscleKey] = exerciseArray;
+       for (var i = 0; i < arrayData.length; i++) {
+        var muscles = arrayData[i].split(',');
+        var muscleKey = muscles[1].trim();
+        //  console.log(muscleKey);
+        if (exerciseAndMuscles.hasOwnProperty(muscleKey)) {
+          exerciseAndMuscles[muscleKey].push(muscles[0]);
+        } else {
+          var exerciseArray = [];
+          exerciseArray.push(muscles[0]);
+          exerciseAndMuscles[muscleKey] = exerciseArray;
+        }
       }
-    }
-    return exerciseAndMuscles;
-   }
+      return exerciseAndMuscles;
+   };
 
   //selectMuscleGroupAndExercises
   function selectMuscleGroupExercises(data) {
     var musclesExerciseGroups = formatData(data);
-    // console.log(musclesExerciseGroups)
+    console.log(musclesExerciseGroups);
     for (muscleKey in musclesExerciseGroups) {
       $selectMuscleGroup.append("<option>" + muscleKey + "</option>");
-      for (i in musclesExerciseGroups[muscleKey]) {
-        console.log(musclesExerciseGroups[muscleKey][i]);
-        $selectExercise.append("<option>" + musclesExerciseGroups[muscleKey][i] + "</option>");
-      }
     }
+    $selectMuscleGroup.change(function() {
+      exerciseSelect(musclesExerciseGroups, this.value);
+    });
   };
+
+ function exerciseSelect(musclesExerciseGroups, muscleKey) {
+   console.log(musclesExerciseGroups[muscleKey]);
+    $selectExercise.html('');
+    for (i in musclesExerciseGroups[muscleKey]) {
+      // console.log(musclesExerciseGroups[muscleKey]);
+      $selectExercise.append("<option>" + musclesExerciseGroups[muscleKey][i] + "</option>");
+    }
+  }
+
 
 // function to output workout data to html
   // var exerciseVariables = function(sessionObj) {
@@ -80,22 +87,11 @@ $(document).ready(function() {
       $modal.toggleClass('is-active');
     })
   }
+});
+
 
   //page redirection
   // var pageRedirect = function() {
   //   window.location.replace("../new-workout-session/index2.html");
   // }
   // setTimeout("pageRedirect()", 10000);
-});
-
-
-
-///old exercise selector
-// function selectExercise(data) {
-//   // console.log(data)
-//   for (i in data.results) {
-//     var exerciseName = data.results[i].name;
-//     $selectExercise.append("<option>" + exerciseName + "</option>");
-//   }
-// var musclesExerciseGroups = formatData(data);
-// };
