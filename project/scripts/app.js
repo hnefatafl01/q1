@@ -8,7 +8,6 @@ $(document).ready(function() {
     //form submission for local storage
     $('#submitForm').click(function(event) {
         event.preventDefault();
-
         var text = $("#form").serialize();
         var sessionObj = createSession(text);
         setModalBody(sessionObj);
@@ -17,13 +16,14 @@ $(document).ready(function() {
         //store it
         $('#saveExercise').one("click", function() {
             addExerciseToLocalStorage(sessionObj);
-            window.location.href = "../training-log/index.html";
+            // window.location.href = "../training-log/index.html";
+            addExerciseToTrainingLog();
         });
 
-        $("#reset").click(function(event) {
-            event.preventDefault();
-            $('html').val() = '';
-        });
+        // $("#reset").click(function(event) {
+        //     event.preventDefault();
+        //     $('html').val() = '';
+        // });
     });
 
     function setModalBody(sessionObj) {
@@ -94,10 +94,17 @@ $(document).ready(function() {
         $modal.removeClass('is-active');
     })
 
-    function addExerciseToTrainingLog(getItemsFromLocalStorage) {
-      var $workoutSession = $('workout-session');
-      $workoutSession.append("<div class="'content'">" + getItemsFromLocalStorage + "<div>");
+    function addExerciseToTrainingLog() {
+      var $workout = $('#workout');
+      var exerciseList = getItemsFromLocalStorage();
+      console.log(exerciseList);
+      var lastExercise = exerciseList[exerciseList.length - 1];
+       $('#log').append("<p>"+lastExercise["Date"] + ": "+"</p>");
+       $('#log').append("<p>"+lastExercise["exercise"] +" "+ lastExercise["sets"]+"x"+lastExercise["repetitions"]+"x"+lastExercise["load"]+"<p>");
+       $('#log').append("<p>"+lastExercise["notes"]+"<p>");
+      // console.log(lastExercise["Date"] + ": " + lastExercise["exercise"] +" "+ lastExercise["sets"]+"x"+lastExercise["repetitions"]+"x"+lastExercise["load"]+lastExercise["notes"]);
     }
+
 });
 
 var exerciseListKey = "exerciseListKey";
