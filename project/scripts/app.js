@@ -6,36 +6,44 @@ $(document).ready(function() {
   });
 
   //form submission for local storage
-  $('form').submit(function(event) {
-      event.preventDefault();
-      var text = $(this).serialize();
-      //decoding from query format
-      var sessionObj = text.split("&").reduce(function(prev, curr, i, arr) {
-          var p = curr.split("=");
-          prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);
-          return prev;
-      }, {});
-      sessionObj["exercise"] = $("#selectExercise").val();
-      // console.log(sessionObj);
-      for (var i in sessionObj) {
-        $('.modal-card-body').append("<p>" + "<strong>" + i + "</strong>" + ": " + sessionObj[i] + "</p>");
-      }
-      $showModal();
-      $hideModal();
+  $('#submitForm').click(function(event) {
+    event.preventDefault();
+
+    var text = $("#form").serialize();
+    var sessionObj = createSession (text);
+    setModalBody(sessionObj);
+    $showModal();
+
     //store it
-    var setExercise = localStorage.setItem("savedExercise", JSON.stringify(sessionObj));
-    $('#saveExercise').click(function() {
-      console.log("saved");
-      $('#workoutSession').append("<p>" + setExercise + "</p>");
+    $('#saveExercise').one("click", function() {
+      addExerciseToLocalStorage(sessionObj);
       window.location.href = "../training-log/index.html";
     });
-    $("form").trigger("reset");
 
+    $("#reset").click(function(event) {
+      event.preventDefault();
+      $('html').val() = '';
+    });
   });
 
-  function trainingLog(setExercise) {
-      // var getExercise = localStorage.getItem(JSON.parse(savedExercise));
 
+
+  function setModalBody(sessionObj) {
+    var $modalBody = $('.modal-card-body');
+    $modalBody.empty();
+    for (var i in sessionObj) {
+      $modalBody.append("<p>" + "<strong>" + i + "</strong>" + ": " + sessionObj[i] + "</p>");
+    }
+  }
+
+  function createSession(text) {
+    var sessionObj = text.split("&").reduce(function(prev, curr, i, arr) {
+        var p = curr.split("=");
+        prev[decodeURIComponent(p[0])] = decodeURIComponent(p[1]);
+        return prev;
+    }, {});
+     sessionObj["exercise"] = $("#selectExercise").val();
+     return sessionObj;
   }
 
   //Muscles and Exercise search
@@ -82,12 +90,26 @@ $(document).ready(function() {
 
   var $modal = $('.modal');
   var $showModal = function() {
-      $modal.toggleClass('is-active');
+      $modal.addClass('is-active');
   };
-
-  var $hideModal = function() {
     $('#cancel').click(function() {
-      $modal.toggleClass('is-active');
+      $modal.removeClass('is-active');
     })
-  }
 });
+
+var exerciseListKey = "exerciseListKey";
+function addExerciseToLocalStorage(sessionObj) {
+  var exerciseList = getItemsFromLocalStorage();
+  exerciseList.push(sessionObj);
+  localStorage.setItem(exerciseListKey, JSON.stringify(exerciseList));
+}
+
+function getItemsFromLocalStorage() {
+  var exerciseList = localStorage.getItem(exerciseListKey);
+  if (exerciseList) {
+    exerciseList = JSON.parse(exerciseList);
+  } else {
+    exerciseList = [];
+  }
+  return exerciseList;
+}

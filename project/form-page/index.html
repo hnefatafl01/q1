@@ -39,8 +39,8 @@
           <div class="side-nav">
             <ul>
               <li><a href="../index.html">Home</a></li>
-              <li><a href="../training-log/index.html">Session History</a></li>
-              <li><a href="./index.html">New Session</a></li>
+              <li><a href="../training-log/index.html">Training Log</a></li>
+              <li><a href="./index.html">New Exercise</a></li>
             </ul>
           </div>
         </span>
@@ -49,13 +49,10 @@
           <a class="nav-item" href="../index.html">
             Home
           </a>
-          <a class="nav-item" href="#">
-            Session History
-          </a>
+          <a class="nav-item" href="#">Training Log</a>
 
           <span class="nav-item" href="./index.html">
-            <a class="button is-primary" href="../form-page/index.html" > New Session
-            </a>
+            <a class="button is-primary" href="../form-page/index.html" >New Exercise</a>
           </span>
         </div>
       </nav>
@@ -82,14 +79,14 @@
       <!-- end modal-->
 
       <section class="container is-fluid">
-        <form>
+        <form id="form">
           <!-- <label class="label">Name</label>
           <p class="control">
             <input class="input" type="text" placeholder="Text input" name="name">
           </p> -->
           <label class="label">Date</date>
           <p class="control">
-            <input class="input" type="date" placeholder="mm/dd/yyyy" name="Date">
+            <input id="date" class="input" type="date" placeholder="mm/dd/yyyy" name="Date">
           </p>
           <div class="columns">
             <div class="column">
@@ -132,7 +129,7 @@
           </p>
           <p class="control">
             <button id ="submitForm" class="button is-primary">Submit</button>
-            <button class="button is-link">Reset</button>
+            <button id="reset" class="button is-link">Reset</button>
           </p>
         </form>
       </section>
