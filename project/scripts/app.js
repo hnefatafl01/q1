@@ -99,12 +99,11 @@ $(document).ready(function() {
       var exerciseList = getItemsFromLocalStorage();
       console.log(exerciseList);
       var lastExercise = exerciseList[exerciseList.length - 1];
-       $('#log').append("<p>"+lastExercise["Date"] + ": "+"</p>");
-       $('#log').append("<p>"+lastExercise["exercise"] +" "+ lastExercise["sets"]+"x"+lastExercise["repetitions"]+"x"+lastExercise["load"]+"<p>");
-       $('#log').append("<p>"+lastExercise["notes"]+"<p>");
+       $('#log').append("<div>"+ lastExercise["Date"] + ": "+"</div>");
+       $('#log').append("<div>"+ lastExercise["exercise"] +" "+ lastExercise["sets"]+"x"+lastExercise["repetitions"]+"x"+lastExercise["load"] + "pounds" + "<div>");
+       $('#log').append("<div>"+ "Notes: " + lastExercise["notes"]+"</div>");
       // console.log(lastExercise["Date"] + ": " + lastExercise["exercise"] +" "+ lastExercise["sets"]+"x"+lastExercise["repetitions"]+"x"+lastExercise["load"]+lastExercise["notes"]);
     }
-
 });
 
 var exerciseListKey = "exerciseListKey";
