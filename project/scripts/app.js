@@ -102,7 +102,6 @@ $(document).ready(function() {
        $('#log').append("<div>"+ lastExercise["Date"] + ": "+"</div>");
        $('#log').append("<div>"+ lastExercise["exercise"] +" "+ lastExercise["sets"]+"x"+lastExercise["repetitions"]+"x"+lastExercise["load"] + "pounds" + "<div>");
        $('#log').append("<div>"+ "Notes: " + lastExercise["notes"]+"</div>");
-      // console.log(lastExercise["Date"] + ": " + lastExercise["exercise"] +" "+ lastExercise["sets"]+"x"+lastExercise["repetitions"]+"x"+lastExercise["load"]+lastExercise["notes"]);
     }
 });
 
