@@ -16,16 +16,27 @@ $(document).ready(function() {
           return prev;
       }, {});
       sessionObj["exercise"] = $("#selectExercise").val();
-      console.log(sessionObj);
+      // console.log(sessionObj);
       for (var i in sessionObj) {
         $('.modal-card-body').append("<p>" + "<strong>" + i + "</strong>" + ": " + sessionObj[i] + "</p>");
       }
       $showModal();
       $hideModal();
     //store it
-    localStorage.setItem("savedExercise", JSON.stringify(sessionObj));
+    var setExercise = localStorage.setItem("savedExercise", JSON.stringify(sessionObj));
+    $('#saveExercise').click(function() {
+      console.log("saved");
+      $('#workoutSession').append("<p>" + setExercise + "</p>");
+      window.location.href = "../training-log/index.html";
+    });
+    $("form").trigger("reset");
 
   });
+
+  function trainingLog(setExercise) {
+      // var getExercise = localStorage.getItem(JSON.parse(savedExercise));
+
+  }
 
   //Muscles and Exercise search
   var $selectMuscleGroup = $('#selectMuscleGroup');
@@ -35,21 +46,21 @@ $(document).ready(function() {
 
   //format raw data
   function formatData(data) {
-     var arrayData = data.split(/\n/);
-     var exerciseAndMuscles = {};
-       for (var i = 0; i < arrayData.length; i++) {
-        var muscles = arrayData[i].split(',');
-        var muscleKey = muscles[1].trim();
-        if (exerciseAndMuscles.hasOwnProperty(muscleKey)) {
-          exerciseAndMuscles[muscleKey].push(muscles[0]);
-        } else {
-          var exerciseArray = [];
-          exerciseArray.push(muscles[0]);
-          exerciseAndMuscles[muscleKey] = exerciseArray;
-        }
+    var arrayData = data.split(/\n/);
+    var exerciseAndMuscles = {};
+    for (var i = 0; i < arrayData.length; i++) {
+      var muscles = arrayData[i].split(',');
+      var muscleKey = muscles[1].trim();
+      if (exerciseAndMuscles.hasOwnProperty(muscleKey)) {
+      exerciseAndMuscles[muscleKey].push(muscles[0]);
+      } else {
+        var exerciseArray = [];
+        exerciseArray.push(muscles[0]);
+        exerciseAndMuscles[muscleKey] = exerciseArray;
       }
-      return exerciseAndMuscles;
-   };
+    }
+    return exerciseAndMuscles;
+  };
 
   //selectMuscleGroupAndExercises
   function selectMuscleGroupExercises(data) {
@@ -68,12 +79,6 @@ $(document).ready(function() {
       $selectExercise.append("<option>" + musclesExerciseGroups[muscleKey][i] + "</option>");
     }
   }
-
-// // function to output workout data to html
-// function saveVariables() {
-//     $('.modal-card-body').append("<p>"+  +"</p>");
-//
-//   }
 
   var $modal = $('.modal');
   var $showModal = function() {

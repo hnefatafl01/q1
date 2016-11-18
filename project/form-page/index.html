@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
       <title>GitFit</title>
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
       <link rel="stylesheet" type="text/css" href="../styles/style.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
@@ -73,7 +74,7 @@
             <!-- Content from exercise variables -->
           </section>
           <footer class="modal-card-foot">
-            <a class="button is-primary">Save changes</a>
+            <a id="saveExercise" class="button is-primary">Save changes</a>
             <a id="cancel" class="button">Cancel</a>
           </footer>
         </div>
@@ -105,7 +106,7 @@
               <label class="label">Exercise</label>
                 <p class="control">
                   <span class="select">
-                    <select id="selectExercise">
+                    <select id="selectExercise" >
                       <option>Select Exercise</option>
                     </select>
                   </span>
