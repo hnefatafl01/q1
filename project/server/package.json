@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "express-zero-config": "^1.1.1"
+  }
+}
