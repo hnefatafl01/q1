@@ -1,20 +1,22 @@
-const path = require('path');
 const ezc = require('express-zero-config');
+const request = require('request');
+const cors = require('cors');
+const path = require('path');
+var apiURL = "https://raw.githubusercontent.com/davejt/exercise/master/data/exercises";
 
 const router = ezc.createRouter();
 
-router.get('/', (req, res, next) => {
-  res.json({
-    message: 'Hello World!'
+const app = ezc.createApp({
+  router,
+  static_dir: path.join(__dirname, '/client')
+});
+
+app.use(cors());
+
+router.get('/muscles', (req, res, next) => {
+  request(apiURL,function(err,result, body) {
+    res.json(body);
   })
 });
 
-const app = ezc.createApp({
-  router,
-  view_path: path.join(__dirname, 'views'),
-  static_dir: path.join(__dirname, 'public')
-});
-
-const server = ezc.createServer(app); // createServer parameters: (express app, port_number)
-
-server.start();
+ezc.startServer(router); // startServer parameters: (express.Router, port_number)
