@@ -1,12 +1,20 @@
 {
-  "name": "project",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.1",
+    "express-zero-config": "^1.1.1",
+    "knex": "^0.12.6",
+    "pg": "^6.1.2",
+    "request": "^2.79.0"
+  }
 }

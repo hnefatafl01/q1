@@ -44,7 +44,7 @@ function App() {
       //Muscles and Exercise search
       var $selectMuscleGroup = $('#selectMuscleGroup');
       var $selectExercise = $('#selectExercise');
-      var url = "https://raw.githubusercontent.com/davejt/exercise/master/data/exercises";
+      var url = "http://localhost:3000/muscles";
       $.get(url, selectMuscleGroupExercises);
 
       //format raw data

@@ -10,13 +10,26 @@ body {
 
 main {
   flex: 1;
+  max-width: 60vw;
+  margin-left: 20vw;
+  margin-right: 20vw;
 }
- .header {
-   width: 100vw;
- }
+
+.nav {
+  margin-left: -1.25em;
+  margin-right: -1.25em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.header {
+   width: 100%;
+   margin-left: 0;
+}
+
 .hero {
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: -.25vw;
+  margin-right: -.25vw;
   border-radius: 5px;
 }
 
@@ -47,7 +60,7 @@ main {
   height: 10vh;
 }
 
-/*@media (min-width 960px) {
+@media (min-width 960px) {
   main.section  {
     flex: 1;
     width: 60vw;
@@ -55,4 +68,4 @@ main {
     margin-right: 20vw;
 
   }
-}*/
+}
