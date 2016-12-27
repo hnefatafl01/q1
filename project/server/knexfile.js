@@ -10,7 +10,7 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      database: 'my_db',
+      database: 'gitfit',
     }
   }
 };
